@@ -223,7 +223,7 @@ dnl   Need to fix this so that it uses the stuff defined by the system.
 AC_DEFUN([TORRENT_CHECK_EXECINFO], [
   AC_MSG_CHECKING(for execinfo.h)
 
-  AC_RUN_IFELSE([AC_LANG_SOURCE([
+  AC_LINK_IFELSE([AC_LANG_SOURCE([
       #include <execinfo.h>
       int main() { backtrace((void**)0, 0); backtrace_symbols((char**)0, 0); return 0;}
       ])],
@@ -238,7 +238,7 @@ AC_DEFUN([TORRENT_CHECK_EXECINFO], [
 AC_DEFUN([TORRENT_CHECK_ALIGNED], [
   AC_MSG_CHECKING(the byte alignment)
 
-  AC_RUN_IFELSE([AC_LANG_SOURCE([
+  AC_LINK_IFELSE([AC_LANG_SOURCE([
       #include <inttypes.h>
       int main() {
         char buf@<:@8@:>@ = { 0, 0, 0, 0, 1, 0, 0, 0 };
